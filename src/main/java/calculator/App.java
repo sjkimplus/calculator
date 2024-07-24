@@ -1,6 +1,8 @@
 package calculator;
 import java.math.BigDecimal;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Queue;
 
 public class App {
 
@@ -14,7 +16,7 @@ public class App {
         BigDecimal result = BigDecimal.ZERO;
         boolean play = true;
         String again;
-        String[] arch = new String[10]; //array of 10 empty strings is created
+        Queue<String> arch = new LinkedList<>();
         int counter = 0; // how many results are saved in arch
 
         while(play) {
@@ -53,10 +55,16 @@ public class App {
 
                 String stringResult = String.valueOf(result);
                 System.out.println("결과: " + stringResult);
-                if (counter<10) {
-                    arch[counter] = stringResult;
-                    counter++;
+                if (counter==10) {
+                    arch.poll();
+                    counter--;
                 }
+                counter++;
+                arch.add(stringResult);
+
+                // printing items to check
+//                for (String item : arch)
+//                    System.out.println(item);
 
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
