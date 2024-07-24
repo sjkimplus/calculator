@@ -14,6 +14,8 @@ public class App {
         BigDecimal result = BigDecimal.ZERO;
         boolean play = true;
         String again;
+        String[] arch = new String[10]; //array of 10 empty strings is created
+        int counter = 0; // how many results are saved in arch
 
         while(play) {
             // getting the numbers and operator
@@ -51,6 +53,8 @@ public class App {
 
                 String stringResult = String.valueOf(result);
                 System.out.println("결과: " + stringResult);
+                arch[counter] = stringResult;
+                counter++;
 
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
@@ -60,5 +64,6 @@ public class App {
             if (again.equals("exit"))
                 play = false;
         }
+        scanner.close();
     }
 }
