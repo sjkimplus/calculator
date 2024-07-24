@@ -16,8 +16,9 @@ public class App {
         BigDecimal result = BigDecimal.ZERO;
         boolean play = true;
         String again;
+        String remove;
+        String inquiry;
         Queue<String> arch = new LinkedList<>();
-        int counter = 0; // how many results are saved in arch
 
         while(play) {
             // getting the numbers and operator
@@ -55,20 +56,24 @@ public class App {
 
                 String stringResult = String.valueOf(result);
                 System.out.println("결과: " + stringResult);
-                if (counter==10) {
-                    arch.poll();
-                    counter--;
-                }
-                counter++;
                 arch.add(stringResult);
 
-                // printing items to check
-//                for (String item : arch)
-//                    System.out.println(item);
 
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제, enter 누를시 다음)");
+            remove = scanner.nextLine();
+            if (remove.equals("remove"))
+                arch.poll();
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회, enter 누를시 다음)");
+            inquiry = scanner.nextLine();
+            if (inquiry.equals("inquiry")) {
+                for (String item : arch)
+                    System.out.println(item);
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료, enter 누를시 지속)");
             again = scanner.nextLine();
             if (again.equals("exit"))
