@@ -53,8 +53,10 @@ public class App {
 
                 String stringResult = String.valueOf(result);
                 System.out.println("결과: " + stringResult);
-                arch[counter] = stringResult;
-                counter++;
+                if (counter<10) {
+                    arch[counter] = stringResult;
+                    counter++;
+                }
 
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
