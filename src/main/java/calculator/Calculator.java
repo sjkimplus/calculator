@@ -1,5 +1,6 @@
 package calculator;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Queue;
 import java.util.LinkedList;
 
@@ -24,7 +25,7 @@ public class Calculator {
                     if (nb2.equals(BigDecimal.ZERO)) {
                         throw new Exception("0 으로 나눌 수 없음.");
                     }
-                    result = nb1.divide(nb2, 5, BigDecimal.ROUND_HALF_UP);
+                    result = nb1.divide(nb2, 5, RoundingMode.HALF_UP);
                     break;
                 default:
                     throw new Exception("에러: 잘못된 연산자입니다.");
@@ -34,6 +35,7 @@ public class Calculator {
         {
             System.out.println("Error: " + e.getMessage());
         }
+        System.out.println("계산결과: "+ String.valueOf(result));
         return result;
     }
 
