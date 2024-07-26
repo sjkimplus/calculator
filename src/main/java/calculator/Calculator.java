@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 public class Calculator {
-    Queue<String> arch = new LinkedList<>();
+    private Queue<String> arch = new LinkedList<>();
 
     public BigDecimal calculate(BigDecimal nb1, BigDecimal nb2, String op) {
         BigDecimal result=BigDecimal.ZERO;
@@ -35,8 +35,19 @@ public class Calculator {
         {
             System.out.println("Error: " + e.getMessage());
         }
+        setResult(String.valueOf(result));
         System.out.println("계산결과: "+ String.valueOf(result));
         return result;
     }
 
+    // Getter Method
+    public Queue<String> getResult() {
+        return arch;
+    }
+
+    // Setter Method: adds new method into the
+    public void setResult(String result) {
+        arch.add(result);
+    }
+    
 }
