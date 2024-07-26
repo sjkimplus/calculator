@@ -49,5 +49,9 @@ public class Calculator {
     public void setResult(String result) {
         arch.add(result);
     }
-    
+
+    public void removeResult() {
+        arch.poll();
+    }
+
 }

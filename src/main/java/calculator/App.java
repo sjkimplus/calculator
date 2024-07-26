@@ -33,10 +33,10 @@ public class App {
 
             myCalc.calculate(nb11, nb22, op);
 
-//            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제, enter 누를시 다음)");
-//            remove = scanner.nextLine();
-//            if (remove.equals("remove"))
-//                arch.poll();
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제, enter 누를시 다음)");
+            remove = scanner.nextLine();
+            if (remove.equals("remove"))
+                myCalc.removeResult();
 //
 //            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회, enter 누를시 다음)");
 //            inquiry = scanner.nextLine();
