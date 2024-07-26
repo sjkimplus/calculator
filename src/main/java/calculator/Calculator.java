@@ -34,6 +34,7 @@ public class Calculator {
         catch (Exception e)
         {
             System.out.println("Error: " + e.getMessage());
+            return result;
         }
         setResult(String.valueOf(result));
         System.out.println("계산결과: "+ String.valueOf(result));
@@ -52,6 +53,11 @@ public class Calculator {
 
     public void removeResult() {
         arch.poll();
+    }
+
+    public void inquiryResults() {
+        for (String result : arch)
+            System.out.println(result);
     }
 
 }

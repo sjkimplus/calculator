@@ -37,13 +37,12 @@ public class App {
             remove = scanner.nextLine();
             if (remove.equals("remove"))
                 myCalc.removeResult();
-//
-//            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회, enter 누를시 다음)");
-//            inquiry = scanner.nextLine();
-//            if (inquiry.equals("inquiry")) {
-//                for (String item : arch)
-//                    System.out.println(item);
-//            }
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회, enter 누를시 다음)");
+            inquiry = scanner.nextLine();
+            if (inquiry.equals("inquiry")) {
+                myCalc.inquiryResults();
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료, enter 누를시 지속)");
             again = scanner.nextLine();
