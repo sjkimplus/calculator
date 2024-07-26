@@ -5,7 +5,12 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 public class Calculator {
-    private Queue<String> arch = new LinkedList<>();
+
+    private Queue<String> arch;
+
+    Calculator () {
+        arch = new LinkedList<>();
+    }
 
     public BigDecimal calculate(BigDecimal nb1, BigDecimal nb2, String op) {
         BigDecimal result=BigDecimal.ZERO;
