@@ -12,13 +12,12 @@ public class App {
         String op;
         int play = 0;
         String again;
-        String remove;
-        String inquiry;
-        Calculator myCalc = new Calculator();
+        ArithmeticCalculator myArithmeticCalc = new ArithmeticCalculator();
+        CircleCalculator myCircleCalc = new CircleCalculator();
 
         System.out.print("사칙연산을 원하면 '1' \n원의 너비를 원하면 '2'를 입력해 주세요: ");
         play = Integer.parseInt(scanner.nextLine());
-        while(play > 0) {
+        while(true) {
             if (play == 1)
             {
                 double calcResult;
@@ -35,14 +34,14 @@ public class App {
                 double nb11 = Double.parseDouble(nb1);
                 double nb22 = Double.parseDouble(nb2);
 
-                calcResult = myCalc.calculate(nb11, nb22, op);
+                calcResult = myArithmeticCalc.calculate(nb11, nb22, op);
 
                 // print result
                 System.out.println("계산결과: "+ String.valueOf(calcResult));
                 // save result
-                myCalc.setResult(calcResult);
+                myArithmeticCalc.setResult(calcResult);
                 // inquire
-                myCalc.inquiryResults();
+                myArithmeticCalc.inquiryResults();
             }
             else if (play==2)
             {
@@ -50,20 +49,27 @@ public class App {
                 double circleResults;
                 System.out.print("반지름의 크기를 입력하시오: ");
                 radius = Double.parseDouble(scanner.nextLine());
-                circleResults = myCalc.calculateCircleArea(radius);
+                circleResults = myCircleCalc.calculate(radius);
 
                 // print results
                 System.out.println("계산결과: "+ String.valueOf(circleResults));
                 // save results
-                myCalc.setCircleArea(circleResults);
+                myCircleCalc.setResult(circleResults);
                 // inquire
-                myCalc.inquiryCircleResults();
+                myCircleCalc.inquiryResults();
+            }
+            else
+            {
+                System.out.println("error: 입력하신 숫자는 1 또는 2 가 아닙니다.");
+                System.out.print("사칙연산을 원하면 '1' \n원의 너비를 원하면 '2'를 입력해 주세요: ");
+                play = Integer.parseInt(scanner.nextLine());
+                continue;
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료, enter 누를시 지속)");
             again = scanner.nextLine();
             if (again.equals("exit"))
-                play = -1;
+                break;
         }
         scanner.close();
     }
