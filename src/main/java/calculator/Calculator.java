@@ -5,6 +5,7 @@ import java.util.LinkedList;
 public class Calculator {
 
     private Queue<String> arch;
+    public OpInterface operation;
 
     Calculator () {
         arch = new LinkedList<>();
@@ -30,5 +31,16 @@ public class Calculator {
         for (String result : arch)
             System.out.println(result);
     }
+
+    public double calculate(double a, double b) {
+        double answer = 0;
+        answer = operation.operate(a, b);
+        return answer;
+    }
+
+    public void setOperation(OpInterface operation) {
+        this.operation = operation;
+    }
+
 }
 

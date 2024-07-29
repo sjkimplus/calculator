@@ -13,26 +13,27 @@ public class ArithmeticCalculator extends Calculator {
         {
             switch (op) {
                 case "+":
-                    result = addOperator.operate(nb1, nb2);
+                    this.setOperation(new AddOperator());
                     break;
                 case "-":
-                    result = subtractOperator.operate(nb1, nb2);
+                    this.setOperation(new SubtractOperator());
                     break;
                 case "*":
-                    result = multiplyOperator.operate(nb1, nb2);
+                    this.setOperation(new MultiplyOperator());
                     break;
                 case "%":
-                    result = modOperator.operate(nb1, nb2);
+                    this.setOperation(new ModOperator());
                     break;
                 case "/":
                     if (nb2==0) {
                         throw new Exception("0 으로 나눌 수 없음.");
                     }
-                    result = divideOperator.operate(nb1, nb2);
+                    this.setOperation(new DivideOperator());
                     break;
                 default:
                     throw new Exception("에러: 잘못된 연산자입니다.");
             }
+            result = operation.operate(nb1, nb2);
         }
         catch (Exception e)
         {
