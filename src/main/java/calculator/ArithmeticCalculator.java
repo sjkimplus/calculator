@@ -1,6 +1,10 @@
 package calculator;
 
 public class ArithmeticCalculator extends Calculator {
+    private AddOperator addOperator = new AddOperator();
+    private SubtractOperator subtractOperator = new SubtractOperator();
+    private MultiplyOperator multiplyOperator = new MultiplyOperator();
+    private DivideOperator divideOperator = new DivideOperator();
 
     public double calculate(double nb1, double nb2, String op) {
         double result = 0;
@@ -8,19 +12,19 @@ public class ArithmeticCalculator extends Calculator {
         {
             switch (op) {
                 case "+":
-                    result = nb1 + nb2;
+                    result = addOperator.operate(nb1, nb2);
                     break;
                 case "-":
-                    result = nb1 - nb2;
+                    result = subtractOperator.operate(nb1, nb2);
                     break;
                 case "*":
-                    result = nb1 * nb2;
+                    result = multiplyOperator.operate(nb1, nb2);
                     break;
                 case "/":
                     if (nb2==0) {
                         throw new Exception("0 으로 나눌 수 없음.");
                     }
-                    result = nb1/nb2;
+                    result = divideOperator.operate(nb1, nb2);
                     break;
                 default:
                     throw new Exception("에러: 잘못된 연산자입니다.");
