@@ -1,8 +1,7 @@
 package calculator;
 
-public class AddOperator {
-
+public class ModOperator {
     public double operate(double a, double b) {
-        return a+b;
+        return a%b;
     }
 }

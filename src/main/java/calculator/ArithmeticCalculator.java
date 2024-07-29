@@ -5,6 +5,7 @@ public class ArithmeticCalculator extends Calculator {
     private SubtractOperator subtractOperator = new SubtractOperator();
     private MultiplyOperator multiplyOperator = new MultiplyOperator();
     private DivideOperator divideOperator = new DivideOperator();
+    private ModOperator modOperator = new ModOperator();
 
     public double calculate(double nb1, double nb2, String op) {
         double result = 0;
@@ -19,6 +20,9 @@ public class ArithmeticCalculator extends Calculator {
                     break;
                 case "*":
                     result = multiplyOperator.operate(nb1, nb2);
+                    break;
+                case "%":
+                    result = modOperator.operate(nb1, nb2);
                     break;
                 case "/":
                     if (nb2==0) {
